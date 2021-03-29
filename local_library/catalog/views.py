@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import *
+from .models import Author, Book, BookInstance
 from django.views import generic
 from django.http import Http404
 
@@ -21,6 +21,6 @@ def index(request):
 
 
 def detail(request):
-    latest_book_list = Book.objects.all()
-    return render(request, 'catalog/book_list', {'latest_book_list': latest_book_list})
+    book_list = Book.objects.all()
+    return render(request, 'catalog/book_list.html', {'book_list': book_list})
 
