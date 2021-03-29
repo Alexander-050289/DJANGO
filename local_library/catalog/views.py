@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.views import generic
+from django.http import Http404
 
 
 def index(request):
@@ -16,3 +18,9 @@ def index(request):
         'num_instance_available': num_instance_available,
         'num_authors': num_authors
     }, )
+
+
+def detail(request):
+    latest_book_list = Book.objects.all()
+    return render(request, 'catalog/book_list', {'latest_book_list': latest_book_list})
+
