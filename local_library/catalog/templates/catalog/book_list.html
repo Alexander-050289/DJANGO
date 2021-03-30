@@ -4,7 +4,7 @@
  <hr>
  {% if book_list %}
    {% for c in book_list %}
-   <p><strong>{{c.title}}</strong></p>
+   <p><a href="{{c.id}}"> <strong>{{c.title}} </strong></p></a>
    {% endfor %}
  {% else %}
    Books not found

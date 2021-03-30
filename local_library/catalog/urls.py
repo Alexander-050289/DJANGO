@@ -7,6 +7,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('books/', views.detail, name='detail'),
     path('authors/', views.detail_authors, name='detail_authors'),
-    # path('book/(?P<pk>\d+)', views.BookDetailView.as_view(), name="book-detail"),
+    path('books/<int:book_id>', views.book_detail_list, name='book_detail_list'),
 
 ]

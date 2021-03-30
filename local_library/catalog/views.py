@@ -22,12 +22,20 @@ def index(request):
 
 def detail(request):
     book_list = Book.objects.all()
-    return render(request, 'catalog/book_list.html', {'book_list': book_list})
+    context = {
+        'book_list': book_list,
+    }
+    return render(request, 'catalog/book_list.html', context)
 
 
 def detail_authors(request):
     author_list = Author.objects.all()
     return render(request, 'catalog/author_list.html', {'author_list': author_list})
 
-def book_detail(request):
-    pass
+
+def book_detail_list(request, book_id):
+    try:
+        bk = Book.objects.get(id=book_id)
+    except:
+        raise Http404('book not found')
+    return render(request, 'catalog/book_detail.html', {'book': bk})
