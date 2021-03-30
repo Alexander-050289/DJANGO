@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+ <hr>
+ {% if author_list %}
+   {% for c in author_list %}
+   <p><strong>{{c.last_name}}</strong>  {{c.first_name}}  ({{c.date_of_birth}} - {{c.date_of_death}})</p>
+   {% endfor %}
+ {% else %}
+   Authors not found
+ {% endif %}
+
+
+</hr>
+ {% endblock %}

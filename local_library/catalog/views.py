@@ -24,3 +24,10 @@ def detail(request):
     book_list = Book.objects.all()
     return render(request, 'catalog/book_list.html', {'book_list': book_list})
 
+
+def detail_authors(request):
+    author_list = Author.objects.all()
+    return render(request, 'catalog/author_list.html', {'author_list': author_list})
+
+def book_detail(request):
+    pass
