@@ -1,7 +1,10 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
- <hr>
+<p> <strong> List of books: </strong></p>
+
+<hr>
+
  {% if book_list %}
    {% for c in book_list %}
    <p><a href="{{c.id}}"> <strong>{{c.title}} </strong></p></a>
@@ -10,6 +13,15 @@
    Books not found
  {% endif %}
 
+<hr>
+
+
+
+
+
+
+  <p><a href="/books/new_book">Add new book</a></p>
+</hr>
 
 </hr>
  {% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<hr>
+<p><strong>Add a new author:</strong> </p>
+</hr>
+  <form action=" " method='post'>
+    {% csrf_token %}
+      {{ form.as_p }}
+        <button name="submit">add author</button>
+</form>
+{% endblock content %}

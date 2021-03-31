@@ -25,8 +25,7 @@ class Book(models.Model):
         ('en', 'English'),
     )
 
-    language = models.CharField(max_length=2, choices=BOOK_LANGUAGE, blank=True, default='ru', help_text='Language of '
-                                                                                                         'a book')
+    language = models.CharField(max_length=2, choices=BOOK_LANGUAGE, blank=True, default='ru', help_text='Language of '                                                                                                   'a book')
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books

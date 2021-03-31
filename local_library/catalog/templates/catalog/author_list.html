@@ -1,6 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+
+<p> <strong> List of authors: </strong></p>
+
  <hr>
  {% if author_list %}
    {% for c in author_list %}
@@ -11,5 +14,12 @@
  {% endif %}
 
 
+</hr>
+
+
+
+<hr>
+
+  <p><a href="/authors/new_author">Add new author</a></p>
 </hr>
  {% endblock %}

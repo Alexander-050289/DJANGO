@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Author, Book, BookInstance
 from django.views import generic
 from django.http import Http404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .forms import BookForm, AuthorForm
 
 
 def index(request):
@@ -39,3 +42,27 @@ def book_detail_list(request, book_id):
     except:
         raise Http404('book not found')
     return render(request, 'catalog/book_detail.html', {'book': bk})
+
+
+def add_new_book(request):
+    if request.method != 'POST':
+        form = BookForm()
+    else:
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('/books'))
+    context = {'form': form}
+    return render(request, 'catalog/new_book.html', context)
+
+
+def add_new_author(request):
+    if request.method != 'POST':
+        form = AuthorForm()
+    else:
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('/authors'))
+    context = {'form': form}
+    return render(request, 'catalog/new_author.html', context)
